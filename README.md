@@ -5,7 +5,14 @@ Run the DeepSeek Harness Web UI in an isolated container on Apple Silicon / Linu
 
 **Not affiliated with DeepSeek AI. Developer preview — use at your own risk.**
 
+## Quick start
+
+```bash
 mkdir -p dsh-home workspace
+
 # Option: export DEEPSEEK_API_KEY=sk-...  (or .env this string: echo "DEEPSEEK_API_KEY=sk-KEY" > .env)
+echo "DEEPSEEK_API_KEY=sk-KEY" > .env
+
 docker compose up -d --build
 docker compose logs -f dsh
+```

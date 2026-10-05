@@ -6,7 +6,7 @@ services:
     image: dsh-harness:local
     container_name: dsh-harness
     ports:
-      - "3080:3080"            # host -> container
+      - "127.0.0.1:3080:3080"   # host -> container (loopback only)
     environment:
       DSH_PORT: "3080"
       # Option: get key on startup
