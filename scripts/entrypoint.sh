@@ -1,10 +1,9 @@
 #!/bin/sh
 set -eu
 
-PORT="${DSH_PORT:-3080}"
+PUBLIC_PORT="${DSH_PORT:-3080}"
+INTERNAL_PORT="${DSH_INTERNAL_PORT:-3081}"
 
-# dsh web listen only loopback -> 0.0.0.0 not work ( not safety).
-# socat bridge 0.0.0.0:PORT -> 127.0.0.1:PORT, for use port Web UI.
-socat "TCP-LISTEN:${PORT},fork,reuseaddr" "TCP:127.0.0.1:${PORT}" &
+socat "TCP-LISTEN:${PUBLIC_PORT},fork,reuseaddr" "TCP:127.0.0.1:${INTERNAL_PORT}" &
 
-exec dsh web --no-open --port "${PORT}" "$@"
+exec dsh web --no-open --port "${INTERNAL_PORT}" "$@"
