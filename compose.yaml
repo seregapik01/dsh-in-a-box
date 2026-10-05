@@ -1,0 +1,18 @@
+services:
+  dsh:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: dsh-harness:local
+    container_name: dsh-harness
+    ports:
+      - "3080:3080"            # host -> container
+    environment:
+      DSH_PORT: "3080"
+      # Option: get key on startup
+      # Web UI: Settings -> Models.
+      DEEPSEEK_API_KEY: "${DEEPSEEK_API_KEY:-}"
+    volumes:
+      - ./dsh-home:/data/dsh    # settings, API-key, session — save after restart
+      - ./workspace:/workspace  # shared dir
+    restart: unless-stopped # ... run after restart
