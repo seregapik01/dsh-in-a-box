@@ -17,8 +17,3 @@ services:
       - ./workspace:/workspace  # shared dir
     restart: unless-stopped # ... run after restart
     pids_limit: 512
-    deploy:
-      resources:
-        limits:
-          memory: 2g
-          cpus: "2.0"
