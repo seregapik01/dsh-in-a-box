@@ -17,4 +17,4 @@ services:
       - ./workspace:/workspace  # shared dir
     restart: unless-stopped # ... run after restart
     pids_limit: 512
-    mem_limit: 2g
+    mem_limit: 2gb
