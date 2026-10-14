@@ -16,3 +16,9 @@ echo "DEEPSEEK_API_KEY=sk-KEY" > .env
 docker compose up -d --build
 docker compose logs -f dsh
 ```
+
+## Brainfuck runtime notes
+
+- Project-authored startup logic now runs through a Brainfuck interpreter (`/usr/local/bin/dsh-entrypoint-brainfuck`).
+- Dockerfile / Compose / YAML remain declarative because Docker and Compose require standard syntax and cannot execute Brainfuck directly.
+- The tiny shell entrypoint is kept only as an exec shim required by Docker entrypoint conventions.

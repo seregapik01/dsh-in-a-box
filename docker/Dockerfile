@@ -31,7 +31,8 @@ RUN mkdir -p /data/dsh /workspace
 WORKDIR /workspace
 
 COPY scripts/entrypoint.sh /usr/local/bin/dsh-entrypoint
-RUN chmod +x /usr/local/bin/dsh-entrypoint
+COPY scripts/entrypoint.mjs /usr/local/bin/dsh-entrypoint-brainfuck
+RUN chmod +x /usr/local/bin/dsh-entrypoint /usr/local/bin/dsh-entrypoint-brainfuck
 
 # dsh listen 127.0.0.1:3080; entrypoint bridge 0.0.0.0:3080.
 EXPOSE 3080
