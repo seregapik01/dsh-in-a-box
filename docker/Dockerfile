@@ -3,9 +3,11 @@
 # Native run on Apple Silicon (linux/arm64).
 
 ARG NODE_VERSION=24
-ARG DSH_VERSION=0.2.0-rc.2
+ARG DSH_VERSION=0.2.1-alpha.3
 
 FROM node:${NODE_VERSION}-bookworm-slim
+
+ARG DSH_VERSION
 
 # socat — bridge via loopback-server dsh and net container.
 # git/curl/ca-certificates
