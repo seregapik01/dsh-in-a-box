@@ -3,7 +3,7 @@
 # Native run on Apple Silicon (linux/arm64).
 
 ARG NODE_VERSION=24
-ARG DSH_VERSION=0.2.1-alpha.3
+ARG DSH_VERSION=0.2.1-rc.1
 
 FROM node:${NODE_VERSION}-bookworm-slim
 
